@@ -6,11 +6,12 @@ import State02 from './components/State02';
 import Export01 from './components/Export01';
 import Quiz01 from './quiz/quiz01/Quiz01';
 import State03 from './components/State03';
+import Props01 from './components/Props01';
 
 function App() {
 
     // return <Export01/>;
-    return <State03/>;
+    return <Props01/>;
 
   // return (
   //   <div className="App">
