@@ -50,6 +50,14 @@ function NewsBlog() {
                                 }}> ❤</span> {likeCountArr[index]}
                             </h4>
                             <p>내용</p>
+                            <button onClick={()=>{
+                                let temp = [...news];
+                                temp.splice(index,1);
+                                setNews(temp);
+
+                                likeCountArr.splice(index,1);
+                                setLikeCountArr(likeCountArr);
+                            }}>삭제</button>
                         </div>
                     )
                 })
