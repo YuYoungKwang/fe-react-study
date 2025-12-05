@@ -17,7 +17,7 @@ import Quiz05_1 from './quiz/quiz05/Quiz05_1';
 function App() {
 
     // return <Export01/>;
-    return <Quiz05_1/>;
+    return <NewsBlog/>;
 
   // return (
   //   <div className="App">
