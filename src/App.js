@@ -14,10 +14,11 @@ import NewsBlog from './newsblog/NewsBlog';
 import Quiz04 from './quiz/quiz04/Quiz04';
 import Quiz05 from './quiz/quiz05/Quiz05';
 import Quiz05_1 from './quiz/quiz05/Quiz05_1';
+import FoodMarket from './foodmarket/FoodMarket';
 function App() {
 
     // return <Export01/>;
-    return <NewsBlog/>;
+    return <FoodMarket/>;
 
   // return (
   //   <div className="App">
