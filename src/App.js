@@ -15,10 +15,11 @@ import Quiz04 from './quiz/quiz04/Quiz04';
 import Quiz05 from './quiz/quiz05/Quiz05';
 import Quiz05_1 from './quiz/quiz05/Quiz05_1';
 import FoodMarket from './foodmarket/FoodMarket';
+import Quiz07 from './quiz/quiz07/Quiz07';
 function App() {
 
     // return <Export01/>;
-    return <FoodMarket/>;
+    return <Quiz07/>;
 
   // return (
   //   <div className="App">
