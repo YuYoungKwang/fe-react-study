@@ -35,9 +35,6 @@ function Detail({ foods }) {
     })
     //foods[foodIndex].title
 
-
-
-
     //useEffect(실행할함수, 의존성배열)
     //useEffect(실행할함수)
     //useEffect(실행할함수 { return ()=>{clean up function}}, 의존성배열)
@@ -69,13 +66,12 @@ function Detail({ foods }) {
         setTimeout(() => {
             setViewStatus('end');
         }, 300)
-
     }, [])
 
     //Modal 창 안보이게 적용
-    useEffect(()=>{
+    useEffect(() => {
         //modalShow   true -> false 2초 후
-        let tmout = setTimeout(()=>{
+        let tmout = setTimeout(() => {
             setModalShow(false);
         }, 2000); //ms   2초
 
@@ -85,7 +81,7 @@ function Detail({ foods }) {
 
         //clearInterval
         //clearTimeout
-        return ()=>{
+        return () => {
             clearTimeout(tmout);
         }
 
@@ -115,26 +111,37 @@ function Detail({ foods }) {
                     <p>{food.price}</p>
                     <p>
                         <Button variant="dark" onClick={() => {
-                            setOrderCount(orderCount - 1);
+                            if (orderCount > 0) {
+                                setOrderCount(orderCount - 1);
+                            } else {
+                                alert('주문 수량이 0이하가 될수 없습니다.');
+                            }
                         }}>-</Button>
                         <span> {orderCount} </span>
                         <Button variant="dark" onClick={() => {
-                            setOrderCount(orderCount + 1);
+                            if (orderCount < food.stockCount) {
+                                setOrderCount(orderCount + 1);
+                            } else {
+                                alert('재고보다 많은 수량을 선택 할 수 없습니다.')
+                            }
                         }}>+</Button>
                     </p>
 
-                    <Button variant="primary">주문하기</Button>
+                    {
+                        food.stockCount <= 0 ? <Button variant='secondary'>품절</Button> : <Button variant='primary'>주문하기</Button>
+                    }
+                    
                 </Col>
             </Row>
 
 
-            <Modal show={modalShow} onHide={()=>{ setModalShow(false) }}>
+            <Modal show={modalShow} onHide={() => { setModalShow(false) }}>
                 <Modal.Header closeButton>
                     <Modal.Title>환영합니다~</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>저희 음식 맛있어요~</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={()=>{ setModalShow(false) }}>
+                    <Button variant="secondary" onClick={() => { setModalShow(false) }}>
                         Close
                     </Button>
                 </Modal.Footer>
